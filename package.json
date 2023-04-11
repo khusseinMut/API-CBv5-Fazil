@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/khusseinMut/API-CBv5-Fazil/issues"
   },
-  "homepage": "https://github.com/khusseinMut/API-CBv5-Fazil#readme"
+  "homepage": "https://github.com/khusseinMut/API-CBv5-Fazil#readme",
+  "dependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/register": "^7.21.0",
+    "prettier": "^2.8.7"
+  }
 }
