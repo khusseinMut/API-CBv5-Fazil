@@ -19,5 +19,37 @@ describe('Autorization test', ()=>{
             expect(response.body.message).to.eq('Auth success')
         })
     })
+    describe('Autorization with invalid data', ()=>{
+        let response
+
+        before(async()=>{
+            response = await request(process.env.BASE_URL)
+                .post('/v5/user/login')
+                .send({email: 'dragon', password: 'dragon'})
+        })
+
+        it('Response status code is 400', async()=>{
+            expect(response.statusCode).to.eq(400)
+        })
+        it('Response body returns correct message', async()=>{
+            expect(response.body.message).to.eq('Auth failed')
+        })
+    })
+    describe('Autorization with empty data', ()=>{
+        let response
+
+        before(async()=>{
+            response = await request(process.env.BASE_URL)
+                .post('/v5/user/login')
+                .send({email: '', password: ''})
+        })
+
+        it('Response status code is 400', async()=>{
+            expect(response.statusCode).to.eq(400)
+        })
+        it('Response body returns correct message', async()=>{
+            expect(response.body.message).to.eq('Auth failed')
+        })
+    })
 })
 
