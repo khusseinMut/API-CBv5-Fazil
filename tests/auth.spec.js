@@ -1,15 +1,13 @@
 import {expect} from 'chai'
-import request from 'supertest'
 import 'dotenv/config'
+import {logIn} from "../helpers/general_helper";
 
 describe('Autorization test', ()=>{
     describe('Autorization with valid data', ()=>{
         let response
 
-        before(async()=>{
-            response = await request(process.env.BASE_URL)
-                .post('/v5/user/login')
-                .send({email: process.env.EMAIL, password: process.env.PASSWORD})
+        before(async()=> {
+            response = await logIn(process.env.EMAIL, process.env.PASSWORD)
         })
 
         it('Response status code is 200', async()=>{
@@ -22,10 +20,8 @@ describe('Autorization test', ()=>{
     describe('Autorization with invalid data', ()=>{
         let response
 
-        before(async()=>{
-            response = await request(process.env.BASE_URL)
-                .post('/v5/user/login')
-                .send({email: 'dragon', password: 'dragon'})
+        before(async()=> {
+            response = await logIn('forest@gmail.com', '123456')
         })
 
         it('Response status code is 400', async()=>{
@@ -38,10 +34,8 @@ describe('Autorization test', ()=>{
     describe('Autorization with empty data', ()=>{
         let response
 
-        before(async()=>{
-            response = await request(process.env.BASE_URL)
-                .post('/v5/user/login')
-                .send({email: '', password: ''})
+        before(async()=> {
+            response = await logIn('','')
         })
 
         it('Response status code is 400', async()=>{
