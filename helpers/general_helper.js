@@ -1,4 +1,5 @@
 import request from "supertest";
+import {faker} from "@faker-js/faker";
 
 function logIn (email, password){
     return request(process.env.BASE_URL)
@@ -6,4 +7,16 @@ function logIn (email, password){
         .send({email, password})
 }
 
-export {logIn}
+function register (companyName, firstName, lastName, email, password){
+    return request(process.env.BASE_URL)
+        .post('/v5/user')
+        .send({
+            companyName: companyName ,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password,
+        })
+}
+
+export {logIn, register}
