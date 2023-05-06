@@ -1,5 +1,5 @@
 import request from "supertest";
-import {faker} from "@faker-js/faker";
+import 'dotenv/config'
 
 function logIn (email, password){
     return request(process.env.BASE_URL)
@@ -11,7 +11,7 @@ function register (companyName, firstName, lastName, email, password){
     return request(process.env.BASE_URL)
         .post('/v5/user')
         .send({
-            companyName: companyName ,
+            companyName: companyName,
             firstName: firstName,
             lastName: lastName,
             email: email,
