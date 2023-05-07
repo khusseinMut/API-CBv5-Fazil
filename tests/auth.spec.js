@@ -16,6 +16,12 @@ describe('Autorization test', ()=>{
         it('Response body returns correct message', async()=>{
             expect(response.body.message).to.eq('Auth success')
         })
+        it('Check the response has token', async()=>{
+            expect(response.body.payload.token).not.to.be.undefined
+        })
+        it('Response body does not show password', async()=>{
+            expect(response.body.payload.user).to.have.property('password',null)
+        })
     })
     describe('Autorization with invalid data', ()=>{
         let response
