@@ -19,9 +19,5 @@ function register (companyName, firstName, lastName, email, password){
         })
 }
 
-// function emailSearch(email){
-//     return request(process.env.BASE_URL)
-//         .post
-// }
 
 export {logIn, register}
