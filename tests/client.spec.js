@@ -148,7 +148,6 @@ describe('Clients tests', () => {
       clientId = (await createClient()).body.payload
       await deleteClient(clientId)
       response = await getSingle(clientId)
-      console.log(clientId)
     })
     it('Response status code is 404', () => {
       expect(response.statusCode).to.eq(404)
