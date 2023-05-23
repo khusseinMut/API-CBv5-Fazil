@@ -8,7 +8,6 @@ describe('Vendor tests', ()=>{
         let response
         before(async()=>{
             response = await createVendor()
-            console.log(response)
         })
         it('Response code is 200', ()=>{
             expect(response.statusCode).to.eq(200)

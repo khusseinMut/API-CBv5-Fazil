@@ -57,7 +57,6 @@ describe('Autorization test', () => {
 
     before(async () => {
       res = await logIn(' ganizade06@gmail.com ', process.env.PASSWORD)
-      console.log(res)
     })
 
     it('Response status code is 200', async () => {
