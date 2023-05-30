@@ -1,4 +1,5 @@
 import {expect} from 'chai'
+
 describe('the first test', ()=>{
     it('check if the sum function working properly', ()=>{
         expect(5 + 2).to.eq(7)
