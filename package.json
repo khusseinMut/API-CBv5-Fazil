@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --config .mocharc.js --reporter mochawesome --reporter-options reportDir=MyReportsNew,reportFilename=[status]_[datetime]-updatedReportNew",
-    "testonly": "mocha --config .mocharc.js"
+    "testonly": "mocha --spec tests/**/*.js --config .mocharc.js",
+    "auth-test": "mocha --spec tests/service.spec.js --config .mocharc.js"
   },
   "repository": {
     "type": "git",

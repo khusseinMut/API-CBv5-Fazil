@@ -1,4 +1,3 @@
-import 'dotenv/config'
 import {createVendor, getAll, getSingle, getByName, updateVendor, deleteVendor} from "../helpers/vendor_helper";
 import { expect } from 'chai'
 
