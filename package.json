@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --config .mocharc.js --reporter mochawesome --reporter-options reportDir=MyReportsNew,reportFilename=[status]_[datetime]-updatedReportNew",
-    "testonly": "mocha --spec tests/**/*.js --config .mocharc.js",
+    "test": "mocha --spec tests/**/*.js --config .mocharc.js",
+    "testonly": "mocha --config .mocharc.js --reporter mochawesome --reporter-options reportDir=MyReportsNew",
     "auth-test": "mocha --spec tests/service.spec.js --config .mocharc.js"
   },
   "repository": {

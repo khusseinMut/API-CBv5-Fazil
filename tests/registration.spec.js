@@ -1,5 +1,4 @@
 import {expect} from 'chai'
-import 'dotenv/config'
 import { faker } from '@faker-js/faker'
 import {register} from '../helpers/general_helper'
 
