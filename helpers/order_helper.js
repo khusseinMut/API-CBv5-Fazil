@@ -5,10 +5,6 @@ import { faker } from '@faker-js/faker'
 function createOrder(
   clientId,
   serviceId,
-  clientPrice,
-  clientPaid,
-  vendorPrice,
-  vendorPaid
 ) {
   return request(process.env.BASE_URL)
     .post('/v5/order')
@@ -19,10 +15,10 @@ function createOrder(
       service: {
         _id: `${serviceId}`,
       },
-      clientPrice,
-      clientPaid,
-      vendorPrice,
-      vendorPaid,
+      clientPrice: faker.datatype.number(100),
+      clientPaid: faker.datatype.number(100),
+      vendorPrice: faker.datatype.number(100),
+      vendorPaid: faker.datatype.number(100),
     })
     .set('Authorization', process.env.TOKEN)
 }

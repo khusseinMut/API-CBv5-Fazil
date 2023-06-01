@@ -1,14 +1,15 @@
 import request from "supertest";
 import 'dotenv/config'
+import {faker} from "@faker-js/faker";
 
-function createService(name, vendor, vendorPrice, clientPrice){
+function createService(vendor){
     return request(process.env.BASE_URL)
         .post('/v5/service')
         .send({
-            name,
+            name: faker.word.noun(),
             vendor,
-            vendorPrice,
-            clientPrice
+            vendorPrice: faker.datatype.number(100),
+            clientPrice: faker.datatype.number(100)
         })
         .set('Authorization', process.env.TOKEN)
 }
@@ -33,14 +34,14 @@ function getByName(serviceName){
         .set('Authorization', process.env.TOKEN)
 }
 
-function updateService(vendor, service, clientPrice, vendorPrice){
+function updateService(vendor, service){
     return request(process.env.BASE_URL)
         .patch(`/v5/service/${service}`)
         .send({
             vendor,
             service,
-            clientPrice,
-            vendorPrice
+            clientPrice: faker.datatype.number(100),
+            vendorPrice: faker.datatype.number(100)
         })
         .set('Authorization', process.env.TOKEN)
 }
